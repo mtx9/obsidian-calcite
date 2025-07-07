@@ -106,10 +106,10 @@ Select all links:
 {*}
 ```
 
-Select the links from the properties `relation1` and `relation2` (e.g. for coloring them):
+Select the links from the properties `relation1` and `relation2` (e.g. for coloring them). (Writing them both inside braces would mean a logical AND. This meant only the pairs between nodes):
 
 ```
-{relation1, relation2}
+{relation1} | {relation2}
 ```
 
 Select all links between note1 and note2, without note1 and note2:
