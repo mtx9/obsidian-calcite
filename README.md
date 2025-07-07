@@ -1,22 +1,30 @@
 # Calcit - A graph query language for Obsidian
 
-The result is a graph that matches the definition of the textually defined graph.
+I created *Calcit* as a *graph query language* for [Obsidian](https://obsidian.md/) just for fun. It is inspired by *Cypher* from Neo4j. Using Cypher by integrating Obsidan's markup syntax would have led to syntactic overhead. That's why I thought about a syntax to fit in seamlessly.
 
+The basic approach is to "draw" the query like ASCII-art in a single line.
+The result of the query is a graph that matches the definition of the textually defined graph.
+
+---
+
+### Basic elements
+
+Nodes are addressed just like notes in Obsidian:
 ```
 [[note]]
 ```
 
-```
-{relation}
-```
-
+Links between notes:
 ```
 ->
 ```
 
+Links between notes defined by a property in a note:
 ```
-(#tag)
+{relation}
 ```
+
+The `:` precedes the filter section of the nodes:
 
 ```
 [[note:property1, #tag1]]
@@ -37,7 +45,7 @@ Select all notes that have the property `next`:
 ```
 
 Select all notes that have the property next referencing another note, and the referenced notes.
-(Notes that have the property next, but it doesn't reference another note, aren't shown.):
+(Notes that have the property next, but doesn't reference another note, aren't shown.):
 
 
 ```
@@ -98,9 +106,8 @@ Select notes starting with "2025-05-" to get all notes from may this year:
 
 `:` after the note's name defines the property and tags filter section.
 
-`,` in the filter section or within the relation block is an abbreviation for && (logical and). 
-`!` is a logical negation. 
-You can use some standard relational operators you know from C-like languages:
+`,` in the filter section or within the relation block is an abbreviation for `&&` (logical and). 
+You can use standard relational operators you know from C-like languages:
 
 | Operator | Description |
 | ---- | --- |
