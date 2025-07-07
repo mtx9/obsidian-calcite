@@ -186,7 +186,7 @@ Select all nodes where `property1` equals 5 and `property2` is greater than 10 a
 
 `o` at the connection spot of a link omits the nodes or tags.
 
-Select all links between note1 and note2, without note1 and note2:
+Select all links from note1 to note2, without note1 and note2:
 
 ```
 [[note1]]o-{*}->o[note2]
