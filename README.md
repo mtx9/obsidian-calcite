@@ -59,7 +59,7 @@ Select all notes that have the property `next`:
 ```
 
 Select all notes that have the property next referencing another note, and the referenced notes.
-(Notes that have the property next, but doesn't reference another note, aren't shown.):
+(Notes that have the property next, but doesn't reference another note through it, aren't shown.):
 
 
 ```
