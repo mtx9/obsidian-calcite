@@ -5,6 +5,8 @@ I created *Calcit* as a *graph query language* for [Obsidian](https://obsidian.m
 The basic approach is to "draw" the query like ASCII-art in a single line.
 The result of the query is a graph that matches the definition of the textually defined graph.
 
+*Example: Select all notes in the folder books and all notes that are linked to these files through the property `author`:*
+
 ```
 [[books/*]]-{author}->[[*]]
 ```
@@ -157,7 +159,7 @@ Select notes starting with "2025-05-" to get all notes from May this year:
 
 `:` after the note's name defines the property and tags filter section.
 
-`,` in the filter section or within the relation block is an abbreviation for `&&` (logical and). 
+`,` in the filter section or within a link block is an abbreviation for `&&` (logical and). 
 You can use standard relational operators you know from C-like languages:
 
 | Operator | Description |
@@ -227,7 +229,7 @@ Select all notes from the folder actors and all notes from the folder writers th
 
 #### Left outer join
 
-`<` before the link's `{` means *left outer joins*.
+`<` before the link's `{` means *left outer join*.
 
 Select all notes from the folder actors and all notes from the folder writers that have the same `surname` and all notes from the folder actors (the left side).
 
@@ -237,7 +239,7 @@ Select all notes from the folder actors and all notes from the folder writers th
 
 #### Right outer join
 
-`>` after the link's `}` means *right outer joins*.
+`>` after the link's `}` means *right outer join*.
 
 Select all notes from the folder actors and all notes from the folder writers that have the same `surname` and all notes from the folder writers (the right side).
 
