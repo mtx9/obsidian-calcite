@@ -5,6 +5,10 @@ I created *Calcit* as a *graph query language* for [Obsidian](https://obsidian.m
 The basic approach is to "draw" the query like ASCII-art in a single line.
 The result of the query is a graph that matches the definition of the textually defined graph.
 
+```
+[[*]]-{next}->[[*]]
+```
+
 ---
 
 ### Basic elements
