@@ -13,7 +13,7 @@ The result of the query is a graph that matches the definition of the textually 
 
 ### Basic elements
 
-Nodes are addressed just like notes in Obsidian:
+File nodes are addressed just like notes in Obsidian:
 ```
 [[note]]
 ```
@@ -35,6 +35,8 @@ The `:` precedes the filter section of the nodes:
 ```
 
 ### Examples
+
+#### Notes and links
 
 Select only the note `note1`:
 
@@ -68,13 +70,13 @@ Select all notes that have either the property `friend` or `foe` (not both) and 
 [[*]]-{friend ^| foe}->[[*]]
 ```
 
-Select all notes frome the folder journal which have the tag #music:
+Select all notes frome the folder journal that have the tag `#music`:
 
 ```
 [[journal/*:#music]]
 ```
 
-Select all notes from the folder journal and all its recursive subfolders which have the tag #music.
+Select all notes from the folder journal and all its recursive subfolders which have the tag `#music`.
 
 `**/` stands for the folder and its recursive subfolders:
 
@@ -82,10 +84,43 @@ Select all notes from the folder journal and all its recursive subfolders which 
 [[journal/**/*:#music]]
 ```
 
-Select all notes from the folder journal which have not the tag #done:
+Select all notes from the folder journal which have not the tag `#done`:
 
 ```
 [[research/*:!#done]]
+```
+
+#### Links
+
+Select all links:
+
+```
+{*}
+```
+
+Select relation1 and relation2 (e.g. for coloring them):
+
+```
+{relation1, relation2}
+```
+
+Select all links between note1 and note2, without note1 and note2:
+
+```
+[[note1]]o-{*}->o[note2]
+```
+
+#### Tags
+
+Select all tags:
+
+```
+(#*)
+```
+
+Select all tags that are in the notes in the folder books, without the notes in the folder books:
+```
+(#*)<-o[[books/*]]
 ```
 
 ### Filtering
