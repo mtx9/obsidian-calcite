@@ -1,12 +1,12 @@
 # Calcit - A graph query language for Obsidian
 
-I created *Calcit* as a *graph query language* for [Obsidian](https://obsidian.md/) just for fun. It is inspired by *Cypher* from Neo4j. Using Cypher by integrating Obsidan's markup syntax would have led to syntactic overhead. That's why I thought about a syntax to fit in seamlessly.
+I created *Calcit* as a *graph query language* for [Obsidian](https://obsidian.md/) just for fun. It is inspired by *Cypher* from Neo4j. Using Cypher with Obsidan's markup syntax would have led to syntactic overhead. That's why I thought about a syntax to fit in seamlessly.
 
 The basic approach is to "draw" the query like ASCII-art in a single line.
 The result of the query is a graph that matches the definition of the textually defined graph.
 
 ```
-[[*]]-{next}->[[*]]
+[[books/*]]-{author}->[[*]]
 ```
 
 ---
@@ -26,6 +26,12 @@ Links between notes:
 Links between notes defined by a property in a note:
 ```
 {relation}
+```
+
+Tags can be addressed separately through:
+
+```
+(#tag)
 ```
 
 The `:` precedes the filter section of the nodes:
@@ -98,7 +104,7 @@ Select all links:
 {*}
 ```
 
-Select relation1 and relation2 (e.g. for coloring them):
+Select the links from the properties `relation1` and `relation2` (e.g. for coloring them):
 
 ```
 {relation1, relation2}
@@ -123,6 +129,12 @@ Select all tags that are in the notes in the folder books, without the notes in 
 (#*)<-o[[books/*]]
 ```
 
+Select `#tag1` and `#tag2`:
+
+```
+(#tag1, #tag2)
+```
+
 ### Filtering
 
 #### Filesystem wildcards
@@ -135,7 +147,7 @@ Select all notes:
 [[*]]
 ```
 
-Select notes starting with "2025-05-" to get all notes from may this year:
+Select notes starting with "2025-05-" to get all notes from May this year:
 
 ```
 [[2025-05-??*]]
@@ -163,14 +175,30 @@ There is another one for XOR:
 | ---- | --- |
 | `^\|` | XOR |
 
+Select all nodes where `property1` equals 5 and `property2` is greater than 10 and have `#tag1` and have not `#tag2`:
 ```
-[[note:property1 == 5, property2 > 10]]
+[[*:property1 == 5, property2 > 10, #tag1, !#tag2]]
 ```
 
-### Relations
+#### Omitting nodes or tags
 
-Examples:
+`o` at the connection spot of a link omits the nodes or tags.
 
+Select all links between note1 and note2, without note1 and note2:
+
+```
+[[note1]]o-{*}->o[note2]
+```
+
+Select all tags that are in the notes in the folder books, without the notes in the folder books:
+```
+(#*)<-o[[books/*]]
+```
+
+#### Links
+
+You can combine multiple property-links:
+%%no tags in link element%%
 ```
 {relation1, relation2}
 
@@ -179,8 +207,44 @@ Examples:
 {relation1 || relation2}
 
 {relation1 ^| relation2}
+
+{(relation1 ^| relation2) && (relation3 ^| relation4)}
 ```
 
-More complex examples are:
+### Joins
 
-{relation1 && (relation2 ^| relation3)}
+You can join notes through their properties similar as in SQL.
+
+`|` after the node's title and before the filter section defines the alias section as usual.
+
+#### Inner join
+
+Select all notes from the folder actors and all notes from the folder writers that have the same `surname`:
+
+```
+[[actors/*|actor]]-{actor.surname == writer.surname}->[[writers/*|writer]]
+```
+
+#### Left outer join
+
+`<` before the link's `{` means *left outer joins*.
+
+Select all notes from the folder actors and all notes from the folder writers that have the same `surname` and all notes from the folder actors (the left side).
+
+```
+[[actors/*|actor]]-<{actor.surname == writer.surname}->[[writers/*|writer]]
+```
+
+#### Right outer join
+
+`>` after the link's `}` means *right outer joins*.
+
+Select all notes from the folder actors and all notes from the folder writers that have the same `surname` and all notes from the folder writers (the right side).
+
+```
+[[actors/*|actor]]-{actor.surname == writer.surname}>->[[writers/*|writer]]
+```
+
+## Implementation
+
+[Peggy](https://peggyjs.org/)
