@@ -165,11 +165,16 @@ You can use standard relational operators you know from C-like languages:
 | Operator | Description |
 | ---- | --- |
 | `==` | EQUAL |
+| `!=` | NOT EQUAL|
 | `!`  | NOT |
 | `&&` | AND |
 | `\|\|` | OR  |
+| `<` | LESS THAN |
+| `>` | GREATER THAN |
+| `<=` | LESS THAN OR EQUAL TO |
+| `>=` | GREATER THAN OR EQUAL TO |
+| `==` | EQUAL TO |
 
-(...add the rest)
 
 There is another one for XOR:
 
@@ -279,4 +284,4 @@ You could also write this by negating the tag:
 
 ## Implementation
 
-[Peggy](https://peggyjs.org/)
+For using Calcit in Obsidian, I plan to write the grammar for the [Peggy](https://peggyjs.org/) parser generator.
