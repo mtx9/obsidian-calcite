@@ -23,6 +23,7 @@ File nodes are addressed just like notes in Obsidian:
 Links between notes:
 ```
 ->
+<-
 ```
 
 Links between notes defined by a property in a note:
@@ -34,6 +35,12 @@ Tags can be addressed separately through:
 
 ```
 (#tag)
+```
+
+Labels for notes can be addressed through:
+
+```
+[label]
 ```
 
 The `:` precedes the filter section of the nodes:
@@ -131,10 +138,10 @@ Select all tags that are in the notes in the folder books, without the notes in 
 (#*)<-o[[books/*]]
 ```
 
-Select `#tag1` and `#tag2`:
+Select `#tag1` and `#tag2`.
 
 ```
-(#tag1, #tag2)
+(#tag1) | (#tag2)
 ```
 
 ### Filtering
@@ -256,10 +263,10 @@ Select all notes from the folder actors and all notes from the folder writers th
 
 You can connect as many elements as you want to one query.
 
-Select all actors who acted in the movies and all directors who directed them:
+Select all actors who acted in the films and all directors who directed them:
 
 ```
-[[actors/*]]-{acted_in}->[[movies/*]]<-{directed}-[[directors/*]]
+[[actors/*]]-{acted_in}->[[films/*]]<-{directed}-[[directors/*]]
 ```
 
 Additionally, you can combine graph queries. The operators (drawn from C bit operators) are:
@@ -273,13 +280,18 @@ Additionally, you can combine graph queries. The operators (drawn from C bit ope
 Select all notes and substract all notes with the tag `#mathematics`.
 
 ```
-[[*]] ~ [[*:!#mathematics]]
+[[*]] ~ [[*:#mathematics]]
 ```
 
-You could also write this by negating the tag:
+You could also express this by negating the tag:
 
 ```
-[[*:#mathematics]]
+[[*:!#mathematics]]
+```
+
+In this case, both sides of the film notes are taken. But you can use the defined label `film`, which represents only the film nodes from the filtered query, to add other links. (This means, you only get the soundtrack for the films with actors and directors):
+```
+[[actors/*]]-{acted_in}->[[films/*|film]]<-{directed}-[[directors/*]] | [film]-{soundtrack}->[[music/*]]
 ```
 
 ## Implementation
