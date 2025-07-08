@@ -106,7 +106,7 @@ Select all links:
 {*}
 ```
 
-Select the links from the properties `relation1` and `relation2` (e.g. for coloring them). (Writing them both inside braces would mean a logical AND. This meant only the pairs between nodes):
+Select the links from the properties `relation1` and `relation2` (e.g. for coloring them). (Writing `{relation1, relation2}` would select only pairs of these links between notes, since this is a logical AND):
 
 ```
 {relation1} | {relation2}
@@ -245,6 +245,36 @@ Select all notes from the folder actors and all notes from the folder writers th
 
 ```
 [[actors/*|actor]]-{actor.surname == writer.surname}>->[[writers/*|writer]]
+```
+
+### Compound queries
+
+You can connect as many elements as you want to one query.
+
+Select all actors who acted in the movies and all directors who directed them:
+
+```
+[[actors/*]]-{acted_in}->[[movies/*]]<-{directed}-[[directors/*]]
+```
+
+Additionally, you can combine graph queries. The operators (drawn from C bit operators) are:
+
+| Operator | Description |
+| --- | --- |
+| `\|` | UNION | 
+| `&` | INTERSECT |
+| `~` | SUBTRACT |
+
+Select all notes and substract all notes with the tag `#mathematics`.
+
+```
+[[*]] ~ [[*:!#mathematics]]
+```
+
+You could also write this by negating the tag:
+
+```
+[[*:#mathematics]]
 ```
 
 ## Implementation
