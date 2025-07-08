@@ -1,4 +1,4 @@
-# Calcit - A graph query language for Obsidian
+# Calcit - a graph query language for Obsidian
 
 I created *Calcit* as a *graph query language* for [Obsidian](https://obsidian.md/) just for fun. It is inspired by *Cypher* from Neo4j. Using Cypher with Obsidan's markup syntax would have led to syntactic overhead. That's why I thought about a syntax to fit in seamlessly.
 
