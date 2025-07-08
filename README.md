@@ -92,7 +92,7 @@ Select all notes from the folder journal and all its recursive subfolders which 
 [[journal/**/*:#music]]
 ```
 
-Select all notes from the folder journal which have not the tag `#done`:
+Select all notes from the folder journal which do not have the tag `#done`:
 
 ```
 [[research/*:!#done]]
@@ -182,7 +182,7 @@ There is another one for XOR:
 | ---- | --- |
 | `^\|` | XOR |
 
-Select all nodes where `property1` equals 5 and `property2` is greater than 10 and have `#tag1` and have not `#tag2`:
+Select all nodes where `property1` equals 5 and `property2` is greater than 10 and have `#tag1` and do not have `#tag2`:
 ```
 [[*:property1 == 5, property2 > 10, #tag1, !#tag2]]
 ```
@@ -205,7 +205,7 @@ Select all tags that are in the notes in the folder books, without the notes in 
 #### Links
 
 You can combine multiple property-links:
-%%no tags in link element%%
+
 ```
 {relation1, relation2}
 
