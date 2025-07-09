@@ -107,10 +107,16 @@ Select all notes from the folder journal which do not have the tag `#done`:
 
 #### Links
 
-Select all links:
+Select all links from properties:
 
 ```
 {*}
+```
+
+Select all links (also from the note's text bodies):
+```
+->
+<-
 ```
 
 Select the links from the properties `relation1` and `relation2` (e.g. for coloring them). (Writing `{relation1, relation2}` would select only pairs of these links between notes, since this is a logical AND):
@@ -119,10 +125,10 @@ Select the links from the properties `relation1` and `relation2` (e.g. for color
 {relation1} | {relation2}
 ```
 
-Select all links between note1 and note2, without note1 and note2:
+Select all normal links between note1 and note2, without note1 and note2:
 
 ```
-[[note1]]o-{*}->o[note2]
+[[note1]]o->o[note2]
 ```
 
 #### Tags
@@ -201,7 +207,7 @@ Select all nodes where `property1` equals 5 and `property2` is greater than 10 a
 Select all links from note1 to note2, without note1 and note2:
 
 ```
-[[note1]]o-{*}->o[note2]
+[[note1]]o->o[note2]
 ```
 
 Select all tags that are in the notes in the folder books, without the notes in the folder books:
@@ -247,6 +253,12 @@ Select all notes from the folder actors and all notes from the folder writers th
 
 ```
 [[actors/*|actor]]-<{actor.surname == writer.surname}->[[writers/*|writer]]
+```
+
+`[[*:next]]-{next}->[[*]]` could be expressed as:
+
+```
+[[*]]-<{next}->[[*]]
 ```
 
 #### Right outer join
