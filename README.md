@@ -245,7 +245,7 @@ Select all notes from the folder actors and all notes from the folder writers th
 [[actors/*|actor]]-{actor.surname == writer.surname}->[[writers/*|writer]]
 ```
 
-#### Left outer join
+#### Left join
 
 `<` before the link's `{` means *left outer join*.
 
@@ -261,7 +261,7 @@ Select all notes from the folder actors and all notes from the folder writers th
 [[*]]-<{next}->[[*]]
 ```
 
-#### Right outer join
+#### Right join
 
 `>` after the link's `}` means *right outer join*.
 
