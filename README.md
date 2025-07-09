@@ -247,7 +247,7 @@ Select all notes from the folder actors and all notes from the folder writers th
 
 #### Left join
 
-`<` before the link's `{` means *left outer join*.
+`<` before the link's `{` means *left join*.
 
 Select all notes from the folder actors and all notes from the folder writers that have the same `surname` and all notes from the folder actors (the left side).
 
@@ -263,7 +263,7 @@ Select all notes from the folder actors and all notes from the folder writers th
 
 #### Right join
 
-`>` after the link's `}` means *right outer join*.
+`>` after the link's `}` means *right join*.
 
 Select all notes from the folder actors and all notes from the folder writers that have the same `surname` and all notes from the folder writers (the right side).
 
