@@ -125,7 +125,7 @@ Select the links from the properties `relation1` and `relation2` (e.g. for color
 {relation1} | {relation2}
 ```
 
-Select all normal links between note1 and note2, without note1 and note2:
+Select all links between note1 and note2, without note1 and note2:
 
 ```
 [[note1]]o->o[note2]
