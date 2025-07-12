@@ -17,7 +17,7 @@ You can use `°` to access the metadata of the notes. This selects all notes tha
 Select all notes that are equal in size:
 
 ```
-[[*|note1]]->{note1°size == note2°size}->[[*|note2]]
+[[*|note1]]-{note1°size == note2°size}->[[*|note2]]
 ```
 
 
