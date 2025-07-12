@@ -27,7 +27,7 @@ https://blacksmithgu.github.io/obsidian-dataview/annotation/metadata-pages/
 
 ### Inline notation
 
-If you want to use Calcit inside of a note with compound operators, you need to omit the whitespace beside the compound operators.
+If you want to use Calcite inside of a note with compound operators, you need to omit the whitespace beside the compound operators.
 
 ```
 [[actors/*]]-{acted_in}->[[films/*|film]]<-{directed}-[[directors/*]]|[film]-{soundtrack}->[[music/*]]
@@ -35,7 +35,7 @@ If you want to use Calcit inside of a note with compound operators, you need to 
 
 Or you could write it in a codeblock:
 ````
-```calcit
+```calcite
 [[actors/*]]-{acted_in}->[[films/*|film]]<-{directed}-[[directors/*]] | [film]-{soundtrack}->[[music/*]]
 ```
 ````
