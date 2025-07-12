@@ -107,7 +107,7 @@ Select all notes from the folder journal which do not have the tag `#done`:
 
 #### Links
 
-Select all links from properties:
+Select all links to notes from properties:
 
 ```
 {*}
