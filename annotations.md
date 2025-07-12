@@ -25,7 +25,7 @@ For convenience the names of the metadata variables are the same as under the fi
 
 https://blacksmithgu.github.io/obsidian-dataview/annotation/metadata-pages/
 
-### Inline
+### Inline notation
 
 If you want to use Calcit inside of a note with compound operators, you need to omit the whitespace beside the compound operators.
 
