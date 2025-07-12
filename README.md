@@ -1,5 +1,7 @@
 # Calcite - a graph query language for Obsidian
 
+![Calcite](https://github.com/user-attachments/assets/28654df6-ad03-4ee3-bcb4-f797195abe76)
+
 I created *Calcite* as a *graph query language* for [Obsidian](https://obsidian.md/) just for fun. It is inspired by *Cypher* from Neo4j. Using Cypher with Obsidan's markup syntax would have led to syntactic overhead. That's why I thought about a syntax to fit in seamlessly.
 
 The basic approach is to "draw" the query like ASCII-art in a single line.
