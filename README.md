@@ -186,10 +186,8 @@ You can use standard relational operators you know from C-like languages:
 | `\|\|` | OR  |
 | `<` | LESS THAN |
 | `>` | GREATER THAN |
-| `<=` | LESS THAN OR EQUAL TO |
-| `>=` | GREATER THAN OR EQUAL TO |
-| `==` | EQUAL TO |
-
+| `<=` | LESS THAN OR EQUAL |
+| `>=` | GREATER THAN OR EQUAL |
 
 There is another one for XOR:
 
