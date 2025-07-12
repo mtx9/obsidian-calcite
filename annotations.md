@@ -24,3 +24,18 @@ Select all notes that are equal in size:
 For convenience the names of the metadata variables are the same as under the field *file* in the dataview plugin:
 
 https://blacksmithgu.github.io/obsidian-dataview/annotation/metadata-pages/
+
+### Inline
+
+If you want to use Calcit inside of a note with compound operators, you need to omit the whitespace beside the compound operators.
+
+```
+[[actors/*]]-{acted_in}->[[films/*|film]]<-{directed}-[[directors/*]]|[film]-{soundtrack}->[[music/*]]
+```
+
+Or you could write it in a codeblock:
+````
+```calcit
+[[actors/*]]-{acted_in}->[[films/*|film]]<-{directed}-[[directors/*]] | [film]-{soundtrack}->[[music/*]]
+```
+````
