@@ -6,6 +6,12 @@ Select all links from note1 to note2, without note1 and note2 and without all li
 [[note1]]o-{!*}->o[note2]
 ```
 
+If you have properties with similar names (`author1`, `author2`, `author3`, ...), you can adress them with wildcards:
+
+```
+[[books/*]]-{author*}->[[*]]
+```
+
 ### Metadata of notes
 
 You can use `°` to access the metadata of the notes. This selects all notes that are at least 1 KB in size:
