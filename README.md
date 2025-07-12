@@ -128,7 +128,7 @@ Select the links from the properties `relation1` and `relation2` (e.g. for color
 Select all links between note1 and note2, without note1 and note2:
 
 ```
-[[note1]]o->o[note2]
+[[note1]]o->o[[note2]]
 ```
 
 #### Tags
