@@ -1,6 +1,6 @@
 # Calcite - a graph query language for Obsidian
 
-![Calcite](https://github.com/user-attachments/assets/28654df6-ad03-4ee3-bcb4-f797195abe76)
+![Calcite](https://github.com/user-attachments/assets/28654df6-ad03-4ee3-bcb4-f797195abe76) [^1]
 
 I created *Calcite* as a *graph query language* for [Obsidian](https://obsidian.md/) just for fun. It is inspired by *Cypher* from Neo4j. Using Cypher with Obsidan's markup syntax would have led to syntactic overhead. That's why I thought about a syntax to fit in seamlessly.
 
@@ -311,3 +311,5 @@ In this case, both sides of the film notes are taken. But you can use the define
 ## Implementation
 
 For using Calcite in Obsidian, I plan to write the grammar for the [Peggy](https://peggyjs.org/) parser generator.
+
+[^1]: Rob Lavinsky, iRocks.com – CC-BY-SA-3.0
