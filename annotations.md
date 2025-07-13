@@ -1,16 +1,23 @@
 ## Annotations and special use cases
 
+If you have properties with similar names (`author1`, `author2`, `author3`, ...), you can adress them with wildcards:
+
+```
+[[books/*]]-{author*}->[[*]]
+```
+
 Select all links from note1 to note2, without note1 and note2 and without all links through properties:
 
 ```
 [[note1]]o-{!*}->o[note2]
 ```
 
-If you have properties with similar names (`author1`, `author2`, `author3`, ...), you can adress them with wildcards:
+Select note1 and all notes that are linked from note1, but omit the links:
 
 ```
-[[books/*]]-{author*}->[[*]]
+[[note1]]-o->[[*]]
 ```
+
 
 ### Metadata of notes
 
