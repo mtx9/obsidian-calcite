@@ -170,6 +170,12 @@ Select notes starting with "2025-05-" to get all notes from May this year:
 [[2025-05-??*]]
 ```
 
+If you have properties with similar names (`author1`, `author2`, `author3`, ...), you can adress them with wildcards:
+
+```
+[[books/*]]-{author*}->[[*]]
+```
+
 #### Properties and tags
 
 `:` after the note's name defines the property and tags filter section.
