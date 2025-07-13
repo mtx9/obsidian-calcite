@@ -273,7 +273,7 @@ Select all notes from the folder actors and all notes from the folder writers th
 
 ### Compound queries
 
-You can connect as many elements as you want to one query.
+You can connect as many elements as you want to one query. (There is only one exemplar of any element in the resulted graph.)
 
 Select all actors who acted in the films and all directors who directed them:
 
