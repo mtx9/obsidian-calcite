@@ -141,7 +141,7 @@ Select all tags:
 (#*)
 ```
 
-Select all tags that are in the notes in the folder books, without the notes in the folder books:
+Select all tags that are in the notes in the folder books, without the notes in the folder books. (The arrow always points towards the tag.):
 ```
 (#*)<-o[[books/*]]
 ```
