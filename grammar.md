@@ -9,10 +9,8 @@ The first part of this file states *Calcit* in *Backus–Naur Form*[^1]. The sec
 ```
 <compound-query> := <query> (<whitespace> <compound-operator> <whitespace> <query>)*
 
-<whitespace> := (" " | \t)* | (\n (" " | \t)*)
-
-// You can split up long queries with a new-line character at structural break points:
-<newline> := \n
+// You cannot use more than one consecutive newline to split up queries.
+<whitespace> := (" " | \t)* \n+ (" " | \t)*
 
 <compound-operator> := "|" | "&" | "~"
 
