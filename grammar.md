@@ -11,6 +11,9 @@ The first part of this file states *Calcit* in *Backus–Naur Form*[^1]. The sec
 
 <whitespace> := (" " | \t)* | (\n (" " | \t)*)
 
+// You can split up long queries with a new-line character at structural break points:
+<newline> := \n
+
 <compound-operator> := "|" | "&" | "~"
 
 ```
