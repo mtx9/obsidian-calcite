@@ -7,7 +7,12 @@ The first part of this file states *Calcit* in *Backus–Naur Form*[^1]. The sec
 ### Definition
 
 ```
-<compound-query> := <query> (<whitespace>* <compound-operator> <whitespace>* <query>)*
+<compound-query> := <query> (<whitespace> <compound-operator> <whitespace> <query>)*
+
+<whitespace> := (" " | \t)* | (\n (" " | \t)*)
+
+<compound-operator> := "|" | "&" | "~"
+
 ```
 
 ...
