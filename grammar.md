@@ -7,12 +7,19 @@ The first part of this file states *Calcit* in *Backus–Naur Form*[^1]. The sec
 ### Definition
 
 ```
-<compound-query> := <query> (<whitespace> <compound-operator> <whitespace> <query>)*
+<compound-query> := <query> (<whitespace>? <compound-operator> <whitespace>? <query>)*
 
-// You cannot use more than one consecutive newline to split up queries.
-<whitespace> := (" " | \t)* \n+ (" " | \t)*
+<whitespace> := (" " | \t)* \n? (" " | \t)*   // You cannot use more than one consecutive newline to split up queries.
+
+<line-break> := (" " | \t)* \n (" " | \t)*
 
 <compound-operator> := "|" | "&" | "~"
+
+<inner-join>
+
+<left-join>
+
+<right-join>
 
 ```
 
