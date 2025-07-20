@@ -19,7 +19,7 @@ The first part of this file states *Calcit* in *Backus–Naur Form*[^1]. The sec
 
 <query> := <tag-start> | <node-start>
 
-<tag-start> := <tag> (<omit-symbol>? <arrow-left> <omit-symbol>? <node-start>)?
+<tag-start> := <tag> (<omit-symbol>? "<-" <omit-symbol>? <node-start>)?
 
 <node-start> := <node> ((<omit-symbol>? <line-break>? "->" <line-break>? <omit-symbol>? <tag-start>) |                        
                         (<omit-symbol>? <line-break>? "->" <line-break>? <omit-symbol>? <node-start>) |
