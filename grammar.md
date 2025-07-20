@@ -15,6 +15,14 @@ The first part of this file states *Calcit* in *Backus–Naur Form*[^1]. The sec
 
 <compound-operator> := "|" | "&" | "~"
 
+<query> := <tag-start> | <node-start>
+
+<tag-start> := tag (<omit-symbol>? <arrow-left> <omit-symbol>? <node-start>)?
+
+
+
+
+
 <inner-join>
 
 <left-join>
