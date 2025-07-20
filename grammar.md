@@ -40,8 +40,11 @@ The first part of this file states *Calcit* in *Backus–Naur Form*[^1]. The sec
 
 <inner-join> := "{" <link-parameter-list> "}"
 
-<node> := "[[" <node-title> <label-section>? <node-filter-section>? "]]"
+<node> := "[[" <node-title> <node-label-section>? <node-filter-section>? "]]"
 
+<node-label-section> := "|" <whitespace>? <label-name>
+
+<node-filter-section> := ":" <whitespace>? <node-filter-parameter-list>
 
 ```
 
