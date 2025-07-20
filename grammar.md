@@ -17,11 +17,14 @@ The first part of this file states *Calcit* in *Backus–Naur Form*[^1]. The sec
 
 <query> := <tag-start> | <node-start>
 
-<tag-start> := tag (<omit-symbol>? <arrow-left> <omit-symbol>? <node-start>)?
+<tag-start> := <tag> (<omit-symbol>? <arrow-left> <omit-symbol>? <node-start>)?
 
+<node-start> := <node> ((<omit-symbol>? <arrow-right> <omit-symbol>? <tag-start>) |
+                        (<omit-symbol>? <arrow-left>  <omit-symbol>? <node-start>) |
+                        (<omit-symbol>? <arrow-right> <omit-symbol>? <node-start>) |
+                        (<omit-symbol>? <link> <omit-symbol>? <node-start>))?
 
-
-
+<link> := <link-left> | <link-right>
 
 <inner-join>
 
