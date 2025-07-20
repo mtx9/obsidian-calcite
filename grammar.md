@@ -28,9 +28,9 @@ The first part of this file states *Calcit* in *Backus–Naur Form*[^1]. The sec
 
 <link> := <link-left> | <link-right>
 
-<link-left> := "<-" <join> "-"
+<link-left> := <line-break>? "<-" <join> "-" <line-break>?
 
-<link-right> := "-" <line-break>? <join> "->"
+<link-right> := "-" <line-break>? <join> "->" <line-break>?
 
 <join> := <left-join> | <inner-join> | <right-join>
 
