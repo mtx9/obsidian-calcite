@@ -15,6 +15,8 @@ The first part of this file states *Calcit* in *Backus–Naur Form*[^1]. The sec
 
 <compound-operator> := "|" | "&" | "~"
 
+<omit-symbol> := "o"
+
 <query> := <tag-start> | <node-start>
 
 <tag-start> := <tag> (<omit-symbol>? <arrow-left> <omit-symbol>? <node-start>)?
@@ -26,11 +28,20 @@ The first part of this file states *Calcit* in *Backus–Naur Form*[^1]. The sec
 
 <link> := <link-left> | <link-right>
 
-<inner-join>
+<link-left> := "<-" <join> "-"
 
-<left-join>
+<link-right> := "-" <join> "->"
 
-<right-join>
+<join> := <left-join> | <inner-join> | <right-join>
+
+<left-join> := "<" <inner-join>
+
+<right-join> := <inner-join> ">"
+
+<inner-join> := "{" <link-parameter-list> "}"
+
+
+
 
 ```
 
