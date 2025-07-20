@@ -21,16 +21,16 @@ The first part of this file states *Calcit* in *Backus–Naur Form*[^1]. The sec
 
 <tag-start> := <tag> (<omit-symbol>? <arrow-left> <omit-symbol>? <node-start>)?
 
-<node-start> := <node> ((<omit-symbol>? "->" <omit-symbol>? <tag-start>) |                        
-                        (<omit-symbol>? "->" <omit-symbol>? <node-start>) |
-                        (<omit-symbol>? "<-"  <omit-symbol>? <node-start>) |
+<node-start> := <node> ((<omit-symbol>? <line-break>? "->" <line-break>? <omit-symbol>? <tag-start>) |                        
+                        (<omit-symbol>? <line-break>? "->" <line-break>? <omit-symbol>? <node-start>) |
+                        (<omit-symbol>? <line-break>? "<-" <line-break>? <omit-symbol>? <node-start>) |
                         (<omit-symbol>? <link> <omit-symbol>? <node-start>))?
 
 <link> := <link-left> | <link-right>
 
 <link-left> := "<-" <join> "-"
 
-<link-right> := "-" <join> "->"
+<link-right> := "-" <line-break>? <join> "->"
 
 <join> := <left-join> | <inner-join> | <right-join>
 
