@@ -42,11 +42,13 @@ The first part of this file states *Calcit* in *Backus–Naur Form*[^1]. The sec
 
 <inner-join> := "{" <link-parameter-list> "}"
 
-<node> := "[[" <node-title> <node-label-section>? <node-filter-section>? "]]"
+<node> := "[[" <node-title> <label-section>? <filter-section>? "]]"
 
-<node-label-section> := "|" <whitespace>? <label-name>
+<label-section> := "|" <whitespace>? <label-name>
 
-<node-filter-section> := ":" <whitespace>? <node-filter-parameter-list>
+<filter-section> := ":" <whitespace>? <filter-parameter-list>
+
+<label> := "[" <label-name> "]"
 
 ```
 
