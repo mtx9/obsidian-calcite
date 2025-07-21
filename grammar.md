@@ -15,22 +15,24 @@ The first part of this file states *Calcit* in *Backus–Naur Form*[^1]. The sec
 
 <compound-operator> := "|" | "&" | "~"
 
-<omit-symbol> := "o"
-
 <query> := <tag-start> | <node-start>
 
-<tag-start> := <tag> (<omit-symbol>? "<-" <omit-symbol>? <node-start>)?
+<tag-start> := <tag> ("o"? <link-arrow-left> "o"? <node-start>)?
 
-<node-start> := <node> ((<omit-symbol>? <line-break>? "->" <line-break>? <omit-symbol>? <tag-start>) |                        
-                        (<omit-symbol>? <line-break>? "->" <line-break>? <omit-symbol>? <node-start>) |
-                        (<omit-symbol>? <line-break>? "<-" <line-break>? <omit-symbol>? <node-start>) |
-                        (<omit-symbol>? <link> <omit-symbol>? <node-start>))?
+<node-start> := <node> (("o"? <line-break>? <link-arrow-right> <line-break>? "o"? <tag-start>) |                        
+                        ("o"? <line-break>? <link-arrow-right> <line-break>? "o"? <node-start>) |
+                        ("o"? <line-break>? <link-arrow-left> <line-break>? "o"? <node-start>) |
+                        ("o"? <link> "o"? <node-start>))?
+
+<link-arrow-right> := "->" | "-o->"
+
+<link-arrow-left> := "<-" | "<-o-"
 
 <link> := <link-left> | <link-right>
 
-<link-left> := <line-break>? "<-" <omit-symbol>? <join> <omit-symbol>? "-" <line-break>?
+<link-left> := <line-break>? "<-" "o"? <join> "o"? "-" <line-break>?
 
-<link-right> := "-" <line-break>? <omit-symbol>? <join> <omit-symbol>? "->" <line-break>?
+<link-right> := "-" <line-break>? "o"? <join> "o"? "->" <line-break>?
 
 <join> := <left-join> | <inner-join> | <right-join>
 
@@ -54,9 +56,9 @@ The first part of this file states *Calcit* in *Backus–Naur Form*[^1]. The sec
 
 You can omit a property-based link by writing `o` before or after the link. But I recommend writing `o` before and after the link, as this is more beautiful (symmetrical).
 
-´´´
+```
 [[books/*]]-o{author}o->[[authors/*]]
-´´´
+```
 
 ### Peggy
 
