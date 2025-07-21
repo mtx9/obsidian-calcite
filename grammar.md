@@ -28,9 +28,9 @@ The first part of this file states *Calcit* in *Backus–Naur Form*[^1]. The sec
 
 <link> := <link-left> | <link-right>
 
-<link-left> := <line-break>? "<-" <join> "-" <line-break>?
+<link-left> := <line-break>? "<-" <omit-symbol>? <join> <omit-symbol>? "-" <line-break>?
 
-<link-right> := "-" <line-break>? <join> "->" <line-break>?
+<link-right> := "-" <line-break>? <omit-symbol>? <join> <omit-symbol>? "->" <line-break>?
 
 <join> := <left-join> | <inner-join> | <right-join>
 
@@ -49,6 +49,14 @@ The first part of this file states *Calcit* in *Backus–Naur Form*[^1]. The sec
 ```
 
 ...
+
+#### Annotations
+
+You can omit a property-based link by writing `o` before or after the link. But I recommend writing `o` before and after the link, as this is more beautiful (symmetrical).
+
+´´´
+[[books/*]]-o{author}o->[[authors/*]]
+´´´
 
 ### Peggy
 
