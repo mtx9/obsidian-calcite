@@ -9,24 +9,30 @@ The first part of this file states *Calcit* in *Backus–Naur Form*[^1]. The sec
 ```
 <compound-query> := <query> (<whitespace>? <compound-operator> <whitespace>? <query>)*
 
+
 <whitespace> := (" " | \t)* \n? (" " | \t)*   
 
 <line-break> := (" " | \t)* \n (" " | \t)*
 
 <compound-operator> := "|" | "&" | "~"
 
+
 <query> := <tag-start> | <node-start>
 
+
 <tag-start> := <tag> ("o"? <link-arrow-left> "o"? <node-start>)?
+
 
 <node-start> := <node> (("o"? <line-break>? <link-arrow-right> <line-break>? "o"? <tag-start>) |                        
                         ("o"? <line-break>? <link-arrow-right> <line-break>? "o"? <node-start>) |
                         ("o"? <line-break>? <link-arrow-left> <line-break>? "o"? <node-start>) |
                         ("o"? <link> "o"? <node-start>))?
 
+
 <link-arrow-right> := "->" | "-o->"
 
 <link-arrow-left> := "<-" | "<-o-"
+
 
 <link> := <link-left> | <link-right>
 
@@ -42,15 +48,18 @@ The first part of this file states *Calcit* in *Backus–Naur Form*[^1]. The sec
 
 <inner-join> := "{" <link-parameter-list> "}"
 
+
 <node> := "[[" <node-title> <label-section>? <filter-section>? "]]"
 
 <node-title> := [a-zA-Z0-9.,_-/*?]+
 
 <label-section> := "|" <label-name>
 
-<filter-section> := ":" <whitespace>? <filter-parameter-list>
+<filter-section> := ":" <line-break>? <filter-parameter-list>
+
 
 <label> := "[" <label-name> "]"
+
 
 <tag> := "(" (<whitespace>? <tag-field> (<whitespace>? ("," (<whitespace>? <tag-field> (<whitespace>?)* ")"
 
@@ -68,6 +77,8 @@ The first part of this file states *Calcit* in *Backus–Naur Form*[^1]. The sec
 <tag-name> := "#" <tag-character>* <alphanumeric-character> <tag-character>*
 
 <tag-character> := [a-zA-Z0-9_-/*?]                          
+
+/* NOTE: replace <whitespace> with <line-break> within the tags passage. */
 
 ```
 
