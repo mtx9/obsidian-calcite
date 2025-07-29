@@ -63,6 +63,7 @@ The first part of this file states *Calcit* in *Backus–Naur Form*[^1]. The sec
                                      (<tag-field-with-parantheses> <whitespace>? <tag-operator> <whitespace>? <tag-name>) |
                                      (<tag-field-with-parantheses> <whitespace>? <tag-operator> <whitespace>? <tag-field-with-parantheses>)) ")"
 
+<tag-name> := "#" <tag-character>* <alphanumeric-character>
 
 
                              
@@ -80,6 +81,9 @@ You can omit a property-based link by writing `o` before or after the link. But 
 ```
 [[books/*]]-o{author}o->[[authors/*]]
 ```
+
+> Tags must contain at least one non-numerical character. For example, #1984 isn't a valid tag, but #y1984 is.
+> https://help.obsidian.md/tags#Tag+format
 
 ### Peggy
 
