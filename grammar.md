@@ -63,10 +63,9 @@ The first part of this file states *Calcit* in *Backus–Naur Form*[^1]. The sec
                                      (<tag-field-with-parantheses> <whitespace>? <tag-operator> <whitespace>? <tag-name>) |
                                      (<tag-field-with-parantheses> <whitespace>? <tag-operator> <whitespace>? <tag-field-with-parantheses>)) ")"
 
-<tag-name> := "#" <tag-character>* <alphanumeric-character>
+<tag-name> := "#" <tag-character>* <alphanumeric-character> <tag-character>*
 
-
-                             
+<tag-character> := [a-zA-Z0-9_-/*?]                          
 
 ```
 
@@ -90,4 +89,4 @@ You can omit a property-based link by writing `o` before or after the link. But 
 ...
 
 
-[^1]: For simplicity and beauty I'm using the variant `:=` instead of `::=`. `*` means 0 or more occurrences. `+` means 1 or more occurrences. `?` means 0 or 1 occurrences. Parentheses are used for grouping. https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form. 
+[^1]: For simplicity and beauty I'm using the variant `:=` instead of `::=`. `*` means 0 or more occurrences. `+` means 1 or more occurrences. `?` means 0 or 1 occurrences. Parentheses are used for grouping. `[]` are used to define a range of characters. https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form. 
