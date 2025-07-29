@@ -9,7 +9,7 @@ The first part of this file states *Calcit* in *Backus–Naur Form*[^1]. The sec
 ```
 <compound-query> := <query> (<whitespace>? <compound-operator> <whitespace>? <query>)*
 
-<whitespace> := (" " | \t)* \n? (" " | \t)*   // You cannot use more than one consecutive newline to split up queries.
+<whitespace> := (" " | \t)* \n? (" " | \t)*   
 
 <line-break> := (" " | \t)* \n (" " | \t)*
 
@@ -50,11 +50,15 @@ The first part of this file states *Calcit* in *Backus–Naur Form*[^1]. The sec
 
 <label> := "[" <label-name> "]"
 
+<tag> := "(" <tag-field> ("," <tag-field>)*
+
 ```
 
 ...
 
 #### Annotations
+
+You cannot use more than one consecutive newline to split up queries.
 
 You can omit a property-based link by writing `o` before or after the link. But I recommend writing `o` before and after the link, as this is more beautiful (symmetrical).
 
