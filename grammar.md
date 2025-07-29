@@ -46,7 +46,7 @@ The first part of this file states *Calcit* in *Backus–Naur Form*[^1]. The sec
 
 <node-title> := [a-zA-Z0-9.,_-/*?]+
 
-<label-section> := "|" <whitespace>? <label-name>
+<label-section> := "|" <label-name>
 
 <filter-section> := ":" <whitespace>? <filter-parameter-list>
 
