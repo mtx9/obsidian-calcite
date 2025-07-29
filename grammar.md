@@ -53,10 +53,16 @@ The first part of this file states *Calcit* in *Backus–Naur Form*[^1]. The sec
 <tag> := "(" (<whitespace>? <tag-field> (<whitespace>? ("," (<whitespace>? <tag-field> (<whitespace>?)* ")"
 
 <tag-field> := <tag-name> |
-               (<tag-name> <tag-operator> <tag-name>) |
-               (<tag-name> <tag-operator> <tag-field-with-parentheses>) |
-               (<tag-field-with-parentheses> <tag-operator> <tag-name>) |
-               (<tag-field-with-parentheses> <tag-operator> <tag-field-with-parantheses>)
+               (<tag-name> <whitespace>? <tag-operator> <whitespace>? <tag-name>) |
+               (<tag-name> <whitespace>? <tag-operator> <whitespace>? <tag-field-with-parentheses>) |
+               (<tag-field-with-parentheses> <whitespace>? <tag-operator> <whitespace>? <tag-name>) |
+               (<tag-field-with-parentheses> <whitespace>? <tag-operator> <whitespace>? <tag-field-with-parantheses>)
+
+<tag-field-with-parantheses> := "(" ((<tag-name> <whitespace>? <tag-operator> <whitespace>? <tag-name>) |
+                                     (<tag-name> <whitespace>? <tag-operator> <whitespace>? <tag-field-with-parantheses>) |
+                                     (<tag-field-with-parantheses> <whitespace>? <tag-operator> <whitespace>? <tag-name>) |
+                                     (<tag-field-with-parantheses> <whitespace>? <tag-operator> <whitespace>? <tag-field-with-parantheses>)) ")"
+
 
 
                              
