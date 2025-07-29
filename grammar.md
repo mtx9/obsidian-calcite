@@ -44,6 +44,8 @@ The first part of this file states *Calcit* in *Backus–Naur Form*[^1]. The sec
 
 <node> := "[[" <node-title> <label-section>? <filter-section>? "]]"
 
+<node-title> := [a-zA-Z0-9.,_-/*?]+
+
 <label-section> := "|" <whitespace>? <label-name>
 
 <filter-section> := ":" <whitespace>? <filter-parameter-list>
@@ -89,4 +91,4 @@ You can omit a property-based link by writing `o` before or after the link. But 
 ...
 
 
-[^1]: For simplicity and beauty I'm using the variant `:=` instead of `::=`. `*` means 0 or more occurrences. `+` means 1 or more occurrences. `?` means 0 or 1 occurrences. Parentheses are used for grouping. `[]` are used to define a range of characters. https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form. 
+[^1]: For simplicity and beauty I'm using the variant `:=` instead of `::=`. `*` means 0 or more occurrences. `+` means 1 or more occurrences. `?` means 0 or 1 occurrence. `()` are used for grouping. `[]` are used to define a range of characters. https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form. 
