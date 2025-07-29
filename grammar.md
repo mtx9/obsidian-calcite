@@ -2,7 +2,7 @@
 
 ### Description
 
-The first part of this file states *Calcit* in *Backus–Naur Form*[^1]. The second part describes it as grammar for the [Peggy](https://peggyjs.org/) parser generator.
+The first part of this file states *Calcite* in *Backus–Naur Form*[^1]. The second part describes it as grammar for the [Peggy](https://peggyjs.org/) parser generator.
 
 ### Definition
 
