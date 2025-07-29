@@ -50,7 +50,16 @@ The first part of this file states *Calcit* in *Backus–Naur Form*[^1]. The sec
 
 <label> := "[" <label-name> "]"
 
-<tag> := "(" <tag-field> ("," <tag-field>)*
+<tag> := "(" (<whitespace>? <tag-field> (<whitespace>? ("," (<whitespace>? <tag-field> (<whitespace>?)* ")"
+
+<tag-field> := <tag-name> |
+               (<tag-name> <tag-operator> <tag-name>) |
+               (<tag-name> <tag-operator> <tag-field-with-parentheses>) |
+               (<tag-field-with-parentheses> <tag-operator> <tag-name>) |
+               (<tag-field-with-parentheses> <tag-operator> <tag-field-with-parantheses>)
+
+
+                             
 
 ```
 
