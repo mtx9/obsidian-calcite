@@ -90,6 +90,8 @@ The first part of this file states *Calcite* in *Backus–Naur Form*[^1]. The se
 
 <property-name> := "!"? "°"? [a-zA-Z0-9_\-.*?\\]+
 
+<filter-property-operator> := "==" | "!=" | "&&" | "||" | "<" | ">" | "<=" | ">=" | "^="
+
 
 <tag> := "(" (<whitespace>? <tag-field> (<whitespace>? ("," (<whitespace>? <tag-field> (<whitespace>?)* ")"
 
