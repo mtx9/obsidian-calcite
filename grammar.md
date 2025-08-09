@@ -48,6 +48,7 @@ The first part of this file states *Calcite* in *Backus–Naur Form*[^1]. The se
 
 <inner-join> := "{" <link-parameter-list> "}"
 
+<link-parameter-list> := <link-parameter> (<white-space>? "," <white-space>? <link-parameter>)* 
 
 <link> := <inner-join>
 
@@ -72,7 +73,7 @@ The first part of this file states *Calcite* in *Backus–Naur Form*[^1]. The se
 
 <filter-section> := ":" <whitespace>? <filter-parameter-list>
 
-<filter-parameter-list> := <filter-parameter> ("," <white-space>? <filter-parameter>)*
+<filter-parameter-list> := <filter-parameter> (<white-space>? "," <white-space>? <filter-parameter>)*
 
 <filter-parameter> := <filter-property> | <filter-property-pair>
 
@@ -93,7 +94,7 @@ The first part of this file states *Calcite* in *Backus–Naur Form*[^1]. The se
 <filter-property-operator> := "==" | "!=" | "&&" | "||" | "<" | ">" | "<=" | ">=" | "^="
 
 
-<tag> := "(" (<whitespace>? <tag-field> (<whitespace>? ("," (<whitespace>? <tag-field> (<whitespace>?)* ")"
+<tag> := "(" (<whitespace>? <tag-field> (<whitespace>? "," <whitespace>? <tag-field>)* ")"
 
 <tag-field> := <tag-name> |
                (<tag-name> <whitespace>? <tag-operator> <whitespace>? <tag-name>) |
@@ -110,6 +111,7 @@ The first part of this file states *Calcite* in *Backus–Naur Form*[^1]. The se
 
 <tag-character> := [a-zA-Z0-9_\-/*?]                          
 
+/* NOTE: Add algorithmic operators for the node filter section and the link parameter */ 
 
 ```
 
