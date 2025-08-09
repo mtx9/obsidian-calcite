@@ -7,7 +7,7 @@ The first part of this file states *Calcite* in *Backus–Naur Form*[^1]. The se
 ### Definition
 
 ```
-<compound-query> := (<query> | <link>) (<whitespace>? <compound-operator> <whitespace>? (<query> | <link>))*
+<compound-query> := (<query> | <link> | <tag>) (<whitespace>? <compound-operator> <whitespace>? (<query> | <link> | <tag>))*
 
 
 <whitespace> := (" " | \t)* \n? (" " | \t)*   
