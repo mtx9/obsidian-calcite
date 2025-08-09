@@ -49,7 +49,11 @@ The first part of this file states *Calcite* in *Backus–Naur Form*[^1]. The se
 <inner-join> := "{" <link-parameter-list> "}"
 
 
-<node> := <label> | ("[[" <node-title> <label-section>? <filter-section>? "]]")
+<node> := <label> | ("[[" <node-section> <label-section>? <filter-section>? "]]")
+
+<node-section> := (<node-path> "/")? <node-title>
+
+<node-path> := (<path-character-withouth-slash>+ "/")* <path-character-withouth-slash>+
 
 <node-title> := [a-zA-Z0-9.,_-/*?]+
 
