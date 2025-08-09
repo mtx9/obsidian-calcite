@@ -7,7 +7,7 @@ The first part of this file states *Calcite* in *Backus–Naur Form*[^1]. The se
 ### Definition
 
 ```
-<compound-query> := <query> (<whitespace>? <compound-operator> <whitespace>? <query>)*
+<compound-query> := (<query> | <link>) (<whitespace>? <compound-operator> <whitespace>? (<query> | <link>))*
 
 
 <whitespace> := (" " | \t)* \n? (" " | \t)*   
@@ -26,7 +26,7 @@ The first part of this file states *Calcite* in *Backus–Naur Form*[^1]. The se
 <node-start> := <node> (("o"? <line-break>? <link-arrow-right> <line-break>? "o"? <tag-start>) |                        
                         ("o"? <line-break>? <link-arrow-right> <line-break>? "o"? <node-start>) |
                         ("o"? <line-break>? <link-arrow-left> <line-break>? "o"? <node-start>) |
-                        ("o"? <link> "o"? <node-start>))?
+                        ("o"? <link-embedded> "o"? <node-start>))?
 
 
 <link-arrow-right> := "->" | "-o->"
@@ -34,7 +34,7 @@ The first part of this file states *Calcite* in *Backus–Naur Form*[^1]. The se
 <link-arrow-left> := "<-" | "<-o-"
 
 
-<link> := <link-left> | <link-right>
+<link-embedded> := <link-left> | <link-right>
 
 <link-left> := <line-break>? "<-" "o"? <join> "o"? "-" <line-break>?
 
@@ -49,11 +49,16 @@ The first part of this file states *Calcite* in *Backus–Naur Form*[^1]. The se
 <inner-join> := "{" <link-parameter-list> "}"
 
 
+<link> := <inner-join>
+
+
 <node> := <label> | ("[[" <node-section> <label-section>? <filter-section>? "]]")
 
 <node-section> := (<node-path> "/")? <node-title>
 
 <node-path> := (<path-character-withouth-slash>+ "/")* <path-character-withouth-slash>+
+
+<path-character-withouth-slash> := [a-zA-Z0-9.,_-*?]
 
 <node-title> := [a-zA-Z0-9.,_-/*?]+
 
