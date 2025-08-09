@@ -46,9 +46,13 @@ The first part of this file states *Calcite* in *Backus–Naur Form*[^1]. The se
 
 <right-join> := <inner-join> ">"
 
-<inner-join> := "{" <link-parameter-list> "}"
+<inner-join> := "{" <link-property-list> "}"
 
-<link-parameter-list> := <link-parameter> (<white-space>? "," <white-space>? <link-parameter>)* 
+<link-property-list> := <link-property> (<white-space>? "," <white-space>? <link-property>)*
+
+<label-and-property> := <label-name> "." <property-name>
+
+<link-property> = <property-name>  // NOTE: continue
 
 <link> := <inner-join>
 
