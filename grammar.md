@@ -115,7 +115,7 @@ The first part of this file states *Calcite* in *Backus–Naur Form*[^1]. The se
 
 <tag-character> := [a-zA-Z0-9_\-/*?]                          
 
-/* NOTE: Add algorithmic operators for the node filter section and the link parameter */ 
+/* NOTE: Add algorithmic operators for the node filter section and the link parameters. */ 
 
 ```
 
@@ -134,7 +134,7 @@ You can omit a property-based link by writing `o` before or after the link. But 
 > Tags must contain at least one non-numerical character. For example, #1984 isn't a valid tag, but #y1984 is.
 > https://help.obsidian.md/tags#Tag+format
 
-`*` and `?` are allowed within a property name by Obsidian. To filter nodes with the properties named `*` or `? you have to quote them with `\`:
+`*` and `?` are allowed within a property name by Obsidian. To filter nodes with the properties named `*` or `?` you have to quote them with `\`:
 
 ```
 [[*:\?]] | [[*:\*]]
@@ -145,4 +145,4 @@ You can omit a property-based link by writing `o` before or after the link. But 
 ...
 
 
-[^1]: For simplicity and beauty I'm using the variant `:=` instead of `::=`. `*` means 0 or more occurrences. `+` means 1 or more occurrences. `?` means 0 or 1 occurrence. `()` are used for grouping. `[]` are used to define a range of characters, wherby `\` quotes characters. https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form. 
+[^1]: For simplicity and beauty I'm using the variant `:=` instead of `::=`. `*` means 0 or more occurrences. `+` means 1 or more occurrences. `?` means 0 or 1 occurrence. `()` are used for grouping. `[]` are used to define a range of characters, wherby `-` defines a range and `\` quotes characters. https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form. 
