@@ -81,7 +81,14 @@ The first part of this file states *Calcite* in *Backus–Naur Form*[^1]. The se
                           (<filter-property-pair-with-parantheses> <filter-property-operator> <filter-property>) |
                           (<filter-property-pair-with-parantheses> <filter-property-operator> <filter-property-pair-with-parantheses>)
 
-<filter-property-pair-with-parantheses> :=
+<filter-property-pair-with-parantheses> := "(" (<filter-property> <filter-property-operator> <filter-property>) |
+                                               (<filter-property> <filter-property-operator> <filter-property-pair-with-parantheses>) |
+                                               (<filter-property-pair-with-parantheses> <filter-property-operator> <filter-property>) |
+                                               (<filter-property-pair-with-parantheses> <filter-property-operator> <filter-property-pair-with-parantheses>) ")"
+
+<filter-property> := <tag-name> | <property-name>
+
+<property-name> := "!"? "°"? [a-zA-Z0-9_\-*?]+
 
 
 <tag> := "(" (<whitespace>? <tag-field> (<whitespace>? ("," (<whitespace>? <tag-field> (<whitespace>?)* ")"
@@ -97,7 +104,7 @@ The first part of this file states *Calcite* in *Backus–Naur Form*[^1]. The se
                                      (<tag-field-with-parantheses> <whitespace>? <tag-operator> <whitespace>? <tag-name>) |
                                      (<tag-field-with-parantheses> <whitespace>? <tag-operator> <whitespace>? <tag-field-with-parantheses>)) ")"
 
-<tag-name> := "#" <tag-character>* <alphanumeric-character> <tag-character>*
+<tag-name> := "!"? "#" <tag-character>* <alphanumeric-character> <tag-character>*
 
 <tag-character> := [a-zA-Z0-9_\-/*?]                          
 
