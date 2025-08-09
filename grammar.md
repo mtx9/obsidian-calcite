@@ -49,13 +49,13 @@ The first part of this file states *Calcite* in *Backus–Naur Form*[^1]. The se
 <inner-join> := "{" <link-parameter-list> "}"
 
 
-<node> := "[[" <node-title> <label-section>? <filter-section>? "]]"
+<node> := <label> | ("[[" <node-title> <label-section>? <filter-section>? "]]")
 
 <node-title> := [a-zA-Z0-9.,_-/*?]+
 
 <label-section> := "|" <label-name>
 
-<filter-section> := ":" <line-break>? <filter-parameter-list>
+<filter-section> := ":" <whitespace>? <filter-parameter-list>
 
 
 <label> := "[" <label-name> "]"
@@ -78,7 +78,6 @@ The first part of this file states *Calcite* in *Backus–Naur Form*[^1]. The se
 
 <tag-character> := [a-zA-Z0-9_-/*?]                          
 
-/* NOTE: replace <whitespace> with <line-break> within the tags passage. */
 
 ```
 
