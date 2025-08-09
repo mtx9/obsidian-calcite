@@ -56,18 +56,32 @@ The first part of this file states *Calcite* in *Backus–Naur Form*[^1]. The se
 
 <node-section> := (<node-path> "/")? <node-title>
 
-<node-path> := (<path-character-withouth-slash>+ "/")* <path-character-withouth-slash>+
+<node-path> := (<path-character-without-slash>+ "/")* <path-character-without-slash>+
 
-<path-character-withouth-slash> := [a-zA-Z0-9.,_-*?]
+<path-character-without-slash> := [a-zA-Z0-9.,_\-*?]
 
-<node-title> := [a-zA-Z0-9.,_-/*?]+
+<node-title> := [a-zA-Z0-9.,_\-/*?]+
 
 <label-section> := "|" <label-name>
 
-<filter-section> := ":" <whitespace>? <filter-parameter-list>
+<label-name> := [a-zA-Z0-9.,_\-]+
 
 
 <label> := "[" <label-name> "]"
+
+
+<filter-section> := ":" <whitespace>? <filter-parameter-list>
+
+<filter-parameter-list> := <filter-parameter> ("," <white-space>? <filter-parameter>)*
+
+<filter-parameter> := <filter-property> | <filter-property-pair>
+
+<filter-property-pair> := (<filter-property> <filter-property-operator> <filter-property>) |
+                          (<filter-property> <filter-property-operator> <filter-property-pair-with-parantheses>) |
+                          (<filter-property-pair-with-parantheses> <filter-property-operator> <filter-property>) |
+                          (<filter-property-pair-with-parantheses> <filter-property-operator> <filter-property-pair-with-parantheses>)
+
+<filter-property-pair-with-parantheses> :=
 
 
 <tag> := "(" (<whitespace>? <tag-field> (<whitespace>? ("," (<whitespace>? <tag-field> (<whitespace>?)* ")"
@@ -85,7 +99,7 @@ The first part of this file states *Calcite* in *Backus–Naur Form*[^1]. The se
 
 <tag-name> := "#" <tag-character>* <alphanumeric-character> <tag-character>*
 
-<tag-character> := [a-zA-Z0-9_-/*?]                          
+<tag-character> := [a-zA-Z0-9_\-/*?]                          
 
 
 ```
@@ -110,4 +124,4 @@ You can omit a property-based link by writing `o` before or after the link. But 
 ...
 
 
-[^1]: For simplicity and beauty I'm using the variant `:=` instead of `::=`. `*` means 0 or more occurrences. `+` means 1 or more occurrences. `?` means 0 or 1 occurrence. `()` are used for grouping. `[]` are used to define a range of characters. https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form. 
+[^1]: For simplicity and beauty I'm using the variant `:=` instead of `::=`. `*` means 0 or more occurrences. `+` means 1 or more occurrences. `?` means 0 or 1 occurrence. `()` are used for grouping. `[]` are used to define a range of characters, wherby `\` quotes characters. https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form. 
