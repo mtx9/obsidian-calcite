@@ -88,7 +88,7 @@ The first part of this file states *Calcite* in *Backus–Naur Form*[^1]. The se
 
 <filter-property> := <tag-name> | <property-name>
 
-<property-name> := "!"? "°"? [a-zA-Z0-9_\-*?]+
+<property-name> := "!"? "°"? [a-zA-Z0-9_\-.*?\\]+
 
 
 <tag> := "(" (<whitespace>? <tag-field> (<whitespace>? ("," (<whitespace>? <tag-field> (<whitespace>?)* ")"
@@ -125,6 +125,12 @@ You can omit a property-based link by writing `o` before or after the link. But 
 
 > Tags must contain at least one non-numerical character. For example, #1984 isn't a valid tag, but #y1984 is.
 > https://help.obsidian.md/tags#Tag+format
+
+`*` and `?` are allowed within a property name by Obsidian. To filter nodes with the properties named `*` or `? you have to quote them with `\`:
+
+```
+[[*:\?]] | [[*:\*]]
+```
 
 ### Peggy
 
