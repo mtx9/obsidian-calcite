@@ -52,7 +52,7 @@ The first part of this file states *Calcite* in *Backus–Naur Form*[^1]. The se
 
 <label-and-property> := <label-name> "." <property-name>
 
-<link-property> = <property-name>  // NOTE: continue
+<link-property> = <property-name>  // NOTE: continue, get inspiration from <tag-field>, consolidate <tag-field> using <...pair>
 
 <link> := <inner-join>
 
