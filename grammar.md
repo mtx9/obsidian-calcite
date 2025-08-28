@@ -16,6 +16,12 @@ The first part of this file states *Calcite* in *Backus–Naur Form*[^1]. The se
 
 <compound-operator> := "|" | "&" | "~"
 
+<arithmetic-operator> := "+" | "-" | "*" | "/" | "%"
+
+<logical-operator> := "&&" | "||" | "^|"
+
+<relational-operator> := "<" | ">" | "<=" | ">=" | "==" | "!="
+
 
 <query> := <tag-start> | <node-start>
 
@@ -115,7 +121,8 @@ The first part of this file states *Calcite* in *Backus–Naur Form*[^1]. The se
 
 <tag-character> := [a-zA-Z0-9_\-/*?]                          
 
-/* NOTE: Add algorithmic operators for the node filter section and the link parameters. */ 
+/* NOTE: Add algorithmic operators for the node filter section and the link parameters. */
+
 
 ```
 
