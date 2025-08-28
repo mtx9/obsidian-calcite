@@ -103,7 +103,7 @@ The first part of this file states *Calcite* in *Backus–Naur Form*[^1]. The se
 
 /* Add the expressions for the <link-property-list>, rename it to <link-parameter-list>.
    Make it clear when arithmetic operaters are allowed within the <link-property-list> and <filter-parameter-list>.
-   Add the expressinos for the <tag-parameter-list>. */
+   Add the expressions for the <tag-parameter-list>. */
 
 ```
 
