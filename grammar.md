@@ -56,9 +56,7 @@ The first part of this file states *Calcite* in *Backus–Naur Form*[^1]. The se
 
 <link-property-list> := <link-property> (<white-space>? "," <white-space>? <link-property>)*
 
-<label-and-property> := <label-name> "." <property-name>
-
-<link-property> = <property-name>  // NOTE: continue, get inspiration from <tag-field>, consolidate <tag-field> using <...pair>
+<link-property> = <property-name>
 
 <link> := <inner-join>
 
@@ -88,9 +86,9 @@ The first part of this file states *Calcite* in *Backus–Naur Form*[^1]. The se
 <filter-parameter> := <filter-property> | <filter-property-pair>
 
 
-<filter-property> := <tag-name> | <property-name>
+<filter-property> := <tag-name> | ("!"? "°"? <property-name>)
 
-<property-name> := "!"? "°"? [a-zA-Z0-9_\-.*?\\]+
+<property-name> := [a-zA-Z0-9_\-.*?\\]+
 
 <filter-property-operator> := "==" | "!=" | "&&" | "||" | "<" | ">" | "<=" | ">=" | "^="
 
