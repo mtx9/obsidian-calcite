@@ -87,15 +87,6 @@ The first part of this file states *Calcite* in *Backus–Naur Form*[^1]. The se
 
 <filter-parameter> := <filter-property> | <filter-property-pair>
 
-<filter-property-pair> := (<filter-property> <filter-property-operator> <filter-property>) |
-                          (<filter-property> <filter-property-operator> <filter-property-pair-with-parantheses>) |
-                          (<filter-property-pair-with-parantheses> <filter-property-operator> <filter-property>) |
-                          (<filter-property-pair-with-parantheses> <filter-property-operator> <filter-property-pair-with-parantheses>)
-
-<filter-property-pair-with-parantheses> := "(" (<filter-property> <filter-property-operator> <filter-property>) |
-                                               (<filter-property> <filter-property-operator> <filter-property-pair-with-parantheses>) |
-                                               (<filter-property-pair-with-parantheses> <filter-property-operator> <filter-property>) |
-                                               (<filter-property-pair-with-parantheses> <filter-property-operator> <filter-property-pair-with-parantheses>) ")"
 
 <filter-property> := <tag-name> | <property-name>
 
@@ -103,19 +94,7 @@ The first part of this file states *Calcite* in *Backus–Naur Form*[^1]. The se
 
 <filter-property-operator> := "==" | "!=" | "&&" | "||" | "<" | ">" | "<=" | ">=" | "^="
 
-
 <tag> := "(" (<whitespace>? <tag-field> (<whitespace>? "," <whitespace>? <tag-field>)* ")"
-
-<tag-field> := <tag-name> |
-               (<tag-name> <whitespace>? <tag-operator> <whitespace>? <tag-name>) |
-               (<tag-name> <whitespace>? <tag-operator> <whitespace>? <tag-field-with-parentheses>) |
-               (<tag-field-with-parentheses> <whitespace>? <tag-operator> <whitespace>? <tag-name>) |
-               (<tag-field-with-parentheses> <whitespace>? <tag-operator> <whitespace>? <tag-field-with-parantheses>)
-
-<tag-field-with-parantheses> := "(" ((<tag-name> <whitespace>? <tag-operator> <whitespace>? <tag-name>) |
-                                     (<tag-name> <whitespace>? <tag-operator> <whitespace>? <tag-field-with-parantheses>) |
-                                     (<tag-field-with-parantheses> <whitespace>? <tag-operator> <whitespace>? <tag-name>) |
-                                     (<tag-field-with-parantheses> <whitespace>? <tag-operator> <whitespace>? <tag-field-with-parantheses>)) ")"
 
 <tag-name> := "!"? "#" <tag-character>* <alphanumeric-character> <tag-character>*
 
