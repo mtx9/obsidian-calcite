@@ -56,7 +56,7 @@ The first part of this file states *Calcite* in *Backus–Naur Form*[^1]. The se
 
 <link-property-list> := <link-property> (<white-space>? "," <white-space>? <link-property>)*
 
-<link-property> = <property-name>
+<link-property> = "!"? (<label-name> ("." | "°"))? <property-name>
 
 <link> := <inner-join>
 
@@ -83,22 +83,20 @@ The first part of this file states *Calcite* in *Backus–Naur Form*[^1]. The se
 
 <filter-parameter-list> := <filter-parameter> (<white-space>? "," <white-space>? <filter-parameter>)*
 
-<filter-parameter> := <filter-property> | <filter-property-pair>
+<filter-parameter> := <filter-property-expression> | <tag-expression>
 
 
-<filter-property> := <tag-name> | ("!"? "°"? <property-name>)
+<filter-property> := "!"? "°"? <property-name>
 
 <property-name> := [a-zA-Z0-9_\-.*?\\]+
 
-<filter-property-operator> := "==" | "!=" | "&&" | "||" | "<" | ">" | "<=" | ">=" | "^="
+<filter-property-operator> := <logical-operatory> | <arithmetic-operator>
 
 <tag> := "(" (<whitespace>? <tag-field> (<whitespace>? "," <whitespace>? <tag-field>)* ")"
 
 <tag-name> := "!"? "#" <tag-character>* <alphanumeric-character> <tag-character>*
 
 <tag-character> := [a-zA-Z0-9_\-/*?]                          
-
-/* NOTE: Add algorithmic operators for the node filter section and the link parameters. */
 
 
 ```
