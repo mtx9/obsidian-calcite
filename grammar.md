@@ -16,8 +16,6 @@ The first part of this file states *Calcite* in *Backus–Naur Form*[^1]. The se
 
 <compound-operator> := "|" | "&" | "~"
 
-<arithmetic-operator> := "+" | "-" | "*" | "/" | "%"
-
 <logical-operator> := "&&" | "||" | "^|"
 
 <relational-operator> := "<" | ">" | "<=" | ">=" | "==" | "!="
@@ -85,9 +83,11 @@ The first part of this file states *Calcite* in *Backus–Naur Form*[^1]. The se
 
 <filter-parameter> := <filter-property-expression> | <tag-expression>
 
-<filter-property-expression> := <filter-property> |
+<filter-property-expression> := <unary-filter-property-expression> |
                                 (<filter-property-expression> <whitespace>? <filter-property-operator> <whitespace>? <filter-property-expression>) |
                                 ("(" <whitespace>? <filter-property-expression> <whitespace>? <filter-property-operator> <whitespace>? <filter-property-expression> <whitespace>? ")") 
+
+<unary-filter-property-expression> := <filter-property> | <number> | <string> | <date>
 
 <filter-property> := "!"? "°"? <property-name>
 
@@ -101,8 +101,7 @@ The first part of this file states *Calcite* in *Backus–Naur Form*[^1]. The se
 
 <tag-character> := [a-zA-Z0-9_\-/*?]                          
 
-/* Add the expressions for the <link-property-list>, rename it to <link-parameter-list>.
-   Make it clear when arithmetic operaters are allowed within the <link-property-list> and <filter-parameter-list>.
+/* Add the expressions for the <link-property-list>, rename it to <link-parameter-list>.   
    Add the expressions for the <tag-parameter-list>. */
 
 ```
