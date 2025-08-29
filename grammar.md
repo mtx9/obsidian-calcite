@@ -58,7 +58,7 @@ The first part of this file states *Calcite* in *Backus–Naur Form*[^1]. The se
                                (<link-parameter-expression> <white-space>? <link-parameter-operator> <white-space>? <link-parameter-expression>) |
                                ( "(" <white-space>? <link-parameter-expression> <white-space>? <link-parameter-operator> <white-space>? <link-parameter-expression> <white-space>? ")")
 
-<unary-link-parameter-expression>
+<unary-link-parameter-expression> := <link-property> | <number> | <string> | <date>
 
 <link-parameter-operator> := <logical-operator> | <relational-operator>
 
@@ -110,8 +110,7 @@ The first part of this file states *Calcite* in *Backus–Naur Form*[^1]. The se
 
 <tag-character> := [a-zA-Z0-9_\-/*?]                          
 
-/* Add the expressions for the <link-property-list>, rename it to <link-parameter-list>.   
-   Add the expressions for the <tag-parameter-list>. */
+/* Add the expressions for the <tag-parameter-list>. */
 
 ```
 
