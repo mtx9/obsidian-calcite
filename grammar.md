@@ -50,9 +50,11 @@ The first part of this file states *Calcite* in *Backus–Naur Form*[^1]. The se
 
 <right-join> := <inner-join> ">"
 
-<inner-join> := "{" <link-property-list> "}"
+<inner-join> := "{" <link-parameter-list> "}"
 
-<link-property-list> := <link-property> (<white-space>? "," <white-space>? <link-property>)*
+<link-parameter-list> := <link-property> (<white-space>? "," <white-space>? <link-property>)*
+
+<link-parameter-expression> :=
 
 <link-property> = "!"? (<label-name> ("." | "°"))? <property-name>
 
@@ -81,19 +83,20 @@ The first part of this file states *Calcite* in *Backus–Naur Form*[^1]. The se
 
 <filter-parameter-list> := <filter-parameter> (<white-space>? "," <white-space>? <filter-parameter>)*
 
-<filter-parameter> := <filter-property-expression> | <tag-expression>
+<filter-parameter> := <filter-parameter-expression> | <tag-expression>
 
-<filter-property-expression> := <unary-filter-property-expression> |
-                                (<filter-property-expression> <whitespace>? <filter-property-operator> <whitespace>? <filter-property-expression>) |
-                                ("(" <whitespace>? <filter-property-expression> <whitespace>? <filter-property-operator> <whitespace>? <filter-property-expression> <whitespace>? ")") 
+<filter-parameter-expression> := <unary-filter-parameter-expression> |
+                                (<filter-parameter-expression> <whitespace>? <filter-parameter-operator> <whitespace>? <filter-parameter-expression>) |
+                                ("(" <whitespace>? <filter-parameter-expression> <whitespace>? <filter-parameter-operator> <whitespace>? <filter-parameter-expression> <whitespace>? ")") 
 
-<unary-filter-property-expression> := <filter-property> | <number> | <string> | <date>
+<unary-filter-parameter-expression> := <filter-property> | <number> | <string> | <date>
+
+<filter-parameter-operator> := <logical-operatory> | <relational-operator>
 
 <filter-property> := "!"? "°"? <property-name>
 
 <property-name> := [a-zA-Z0-9_\-.*?\\]+
 
-<filter-property-operator> := <logical-operatory> | <arithmetic-operator>
 
 <tag> := "(" (<whitespace>? <tag-field> (<whitespace>? "," <whitespace>? <tag-field>)* ")"
 
