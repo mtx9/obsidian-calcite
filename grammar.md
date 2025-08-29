@@ -138,13 +138,46 @@ You can omit a property-based link by writing `o` before or after the link. But 
 
 ##### Dates
 
-Dates are written in the form `` `YYYY-MM-DD` `` or `` `YYYY/MM/DD` `` (backticks). If you only want to compare a part of the date, you can omit the other date numbers but you have to keep the delimiters. Though, you can omit parts of the date from right to left and even omit the delimiters.
+Dates are written in the form `` `YYYY-MM-DD` `` or `` `YYYY/MM/DD` `` (with backticks). If you only want to compare a part of the date, you can omit the other date numbers but you have to keep the delimiters. Though, you can omit parts of the date from right to left and even omit the delimiters.
 
-Select all notes from the folder trips that have the date start equal or greater than 2020:
+Select all notes from the folder trips that have the date start equal or greater than `2020-02-14`:
+
+```
+[[trips/*:start >= `2020-02-14`]]
+
+[[trips/*:start >= `2020/02/14`]]
+```
+Select all notes from the folder trips that have the date start greater than the year 2020 and greather than the 2nd of a month. (This means the first two days of any month are not selected.):
+
+```
+[[trips/*:start > `2020--02`]]
+
+[[trips/*:start > `2020//02`]]
+```
+
+Select all notes from the folder trips that have the date start greater than February 2020:
+
+```
+[[trips/*:start > `2020-02`]]
+
+[[trips/*:start > `2020/02`]]
+```
+
+Select all notes from the folder trips that have the date start equal or greater than `2020`:
 
 ```
 [[trips/*:start >= `2020`]]
 ```
+
+Select all notes from the folder trips that have the date start greater the 16th day of the month:
+
+```
+[[trips/*:start >= `--16`]]
+
+[[trips/*:start >= `//16`]]
+```
+
+##### Tags
 
 > Tags must contain at least one non-numerical character. For example, #1984 isn't a valid tag, but #y1984 is.
 > https://help.obsidian.md/tags#Tag+format
