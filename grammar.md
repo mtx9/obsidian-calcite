@@ -108,7 +108,17 @@ The first part of this file states *Calcite* in *Backus–Naur Form*[^1]. The se
 
 <tag-name> := "!"? "#" <tag-character>* <alphanumeric-character> <tag-character>*
 
-<tag-character> := [a-zA-Z0-9_\-/*?]                          
+<tag-character> := [a-zA-Z0-9_\-/*?]
+
+<date> := "`" <year>? (<date-delimiter> <month>? (<date-delimiter> <day>?)?)? "`"
+
+<date-delimiter> := "-" | "/"
+
+<year> := {<digit>}4
+
+<month> := {<digit>}2
+
+<day> := {<digit>}2
 
 /* Add the expressions for the <tag-parameter-list>. */
 
@@ -125,6 +135,18 @@ You can omit a property-based link by writing `o` before or after the link. But 
 ```
 [[books/*]]-o{author}o->[[authors/*]]
 ```
+
+##### Dates
+
+Dates are written in the form `` `YYYY-MM-DD` `` or `` `YYYY/MM/DD` ``. If you only want to compare a part of the date, you can omit the other date numbers but you have to keep the delimiters. Though, you can omit parts of the date from right to left and even omit the delimiters.
+
+Select all notes from the folder trips that have the date start equal or greater than 2020:
+
+´´´
+
+[[trips/*:start >= \`2020\`]]
+
+´´´
 
 > Tags must contain at least one non-numerical character. For example, #1984 isn't a valid tag, but #y1984 is.
 > https://help.obsidian.md/tags#Tag+format
