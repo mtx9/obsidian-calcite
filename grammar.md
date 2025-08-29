@@ -169,7 +169,7 @@ Select all notes from the folder trips that have the date start equal or greater
 [[trips/*:start >= `2020`]]
 ```
 
-Select all notes from the folder trips that have the date start greater the 16th day of the month:
+Select all notes from the folder trips that have the date start greater than the 16th day of the month:
 
 ```
 [[trips/*:start >= `--16`]]
