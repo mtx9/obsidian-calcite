@@ -54,7 +54,13 @@ The first part of this file states *Calcite* in *Backus–Naur Form*[^1]. The se
 
 <link-parameter-list> := <link-property> (<white-space>? "," <white-space>? <link-property>)*
 
-<link-parameter-expression> :=
+<link-parameter-expression> := <unary-link-parameter-expression> |
+                               (<link-parameter-expression> <white-space>? <link-parameter-operator> <white-space>? <link-parameter-expression>) |
+                               ( "(" <white-space>? <link-parameter-expression> <white-space>? <link-parameter-operator> <white-space>? <link-parameter-expression> <white-space>? ")")
+
+<unary-link-parameter-expression>
+
+<link-parameter-operator> := <logical-operator> | <relational-operator>
 
 <link-property> = "!"? (<label-name> ("." | "°"))? <property-name>
 
