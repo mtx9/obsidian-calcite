@@ -1,3 +1,4 @@
+
 ## Grammar
 
 ### Description
@@ -178,9 +179,9 @@ Select all notes from the folder trips whose date `start` is equal or greater th
 Select all notes from the folder trips whose date `start` is greater than the 16th day of the month:
 
 ```
-[[trips/*:start >= `--16`]]
+[[trips/*:start > `--16`]]
 
-[[trips/*:start >= `//16`]]
+[[trips/*:start > `//16`]]
 ```
 
 ##### Tags
