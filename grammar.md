@@ -127,7 +127,7 @@ The first part of this file states *Calcite* in *Backus–Naur Form*[^1]. The se
 
 <number> := "-"? [0-9]+ ("." [0-9]+)?
 
-<string> := "\"" /*An arbitrary number of any character and quoted double apostrophe */ "\""
+<string> := "\"" /*An arbitrary number of any character and quoted double apostrophe. */ "\""
 
 
 ```
