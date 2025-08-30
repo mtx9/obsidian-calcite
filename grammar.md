@@ -92,8 +92,10 @@ The first part of this file states *Calcite* in *Backus–Naur Form*[^1]. The se
 <filter-parameter> := <filter-parameter-expression> | <tag-expression>
 
 <filter-parameter-expression> := <unary-filter-parameter-expression> |
-                                (<filter-parameter-expression> <whitespace>? <filter-parameter-operator> <whitespace>? <filter-parameter-expression>) |
-                                ("(" <whitespace>? <filter-parameter-expression> <whitespace>? <filter-parameter-operator> <whitespace>? <filter-parameter-expression> <whitespace>? ")") 
+                                (<filter-parameter-expression> <whitespace>? <filter-parameter-operator>
+                                   <whitespace>? <filter-parameter-expression>) |
+                                ("(" <whitespace>? <filter-parameter-expression> <whitespace>? <filter-parameter-operator>
+                                   <whitespace>? <filter-parameter-expression> <whitespace>? ")") 
 
 <unary-filter-parameter-expression> := <filter-property> | <number> | <string> | <date>
 
@@ -110,9 +112,7 @@ The first part of this file states *Calcite* in *Backus–Naur Form*[^1]. The se
 
 <tag-character> := [a-zA-Z0-9_\-/*?]
 
-<date> := "`" <year>? (<date-delimiter> <month>? (<date-delimiter> <day>?)?)? "`"
-
-<date-delimiter> := "-" | "/"
+<date> := "`" ((<year>? ("-" <month>? ("-" <day>?)?)?) | (<year>? ("/" <month>? ("/" <day>?)?)?))  "`"
 
 <year> := {<digit>}4
 
