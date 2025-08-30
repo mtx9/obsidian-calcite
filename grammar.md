@@ -106,11 +106,16 @@ The first part of this file states *Calcite* in *Backus–Naur Form*[^1]. The se
 <property-name> := [a-zA-Z0-9_\-.*?\\]+
 
 
-<tag> := "(" (<whitespace>? <tag-field> (<whitespace>? "," <whitespace>? <tag-field>)* ")"
+<tag> := "(" (<whitespace>? <tag-expression> (<whitespace>? "," <whitespace>? <tag-expression>)* ")"
+
+<tag-expression> := <tag-name> | (<tag-expression> <whitespace>? <logical-operator> <whitespace>? <tag-expression>) |
+                                 ("(" <whitespace>?  <tag-expression> <whitespace>? <logical-operator> <whitespace>? <tag-expression> <whitespace>? ")")
 
 <tag-name> := "!"? "#" <tag-character>* <alphanumeric-character> <tag-character>*
 
 <tag-character> := [a-zA-Z0-9_\-/*?]
+
+<alphanumeric-character> := [a-zA-Z0-9]
 
 <date> := "`" ((<year>? ("-" <month>? ("-" <day>?)?)?) | (<year>? ("/" <month>? ("/" <day>?)?)?))  "`"
 
@@ -120,7 +125,10 @@ The first part of this file states *Calcite* in *Backus–Naur Form*[^1]. The se
 
 <day> := {<digit>}2
 
-/* Add the expressions for the <tag-parameter-list>. */
+<number> := "-"? [0-9]+ ("." [0-9]+)?
+
+<string> := "\"" /*An arbitrary number of any character and quoted double apostrophe */ "\""
+
 
 ```
 
@@ -155,18 +163,18 @@ Select all notes from the folder trips that have the date start greater than the
 [[trips/*:start > `2020//02`]]
 ```
 
-Select all notes from the folder trips that have the date start greater than February 2020:
+Select all notes from the folder trips that have the date start greater than May 2023:
 
 ```
-[[trips/*:start > `2020-02`]]
+[[trips/*:start > `2023-05`]]
 
-[[trips/*:start > `2020/02`]]
+[[trips/*:start > `2023/05`]]
 ```
 
-Select all notes from the folder trips that have the date start equal or greater than `2020`:
+Select all notes from the folder trips that have the date start equal or greater than `2025`:
 
 ```
-[[trips/*:start >= `2020`]]
+[[trips/*:start >= `2025`]]
 ```
 
 Select all notes from the folder trips that have the date start greater than the 16th day of the month:
