@@ -154,13 +154,6 @@ Select all notes from the folder trips whose date `start` is equal or greater th
 
 [[trips/*:start >= `2020/02/14`]]
 ```
-Select all notes from the folder trips  whose date `start` is greater than the year 2020 and greather than the 2nd of a month. (This means the first two days of any month are not selected.):
-
-```
-[[trips/*:start > `2020--02`]]
-
-[[trips/*:start > `2020//02`]]
-```
 
 Select all notes from the folder trips whose date `start`is  greater than May 2023:
 
@@ -174,6 +167,14 @@ Select all notes from the folder trips whose date `start` is equal or greater th
 
 ```
 [[trips/*:start >= `2025`]]
+```
+
+Select all notes from the folder trips  whose date `start` is greater than the year 2020 and greather than the 2nd of a month. (This means the first two days of any month are not selected.):
+
+```
+[[trips/*:start > `2020--02`]]
+
+[[trips/*:start > `2020//02`]]
 ```
 
 Select all notes from the folder trips whose date `start` is greater than the 16th day of the month:
