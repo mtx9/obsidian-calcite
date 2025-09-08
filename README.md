@@ -75,11 +75,8 @@ Select all notes that have the property next referencing another note, and the r
 [[*]]-{next}->[[*]]
 ```
 
-Select all notes that have the property next and all notes that are referenced from these notes through next:
-
-```
-[[*:next]]-{next}->[[*]]
-```
+If you want to select all notes that have the property next and all notes that are referenced from these notes through next,
+you have to use a *left join* or a *compound query* (see later).
 
 Select all notes that have either the property `friend` or `foe` (not both) and the notes referenced through these properties:
 
@@ -261,10 +258,10 @@ Select all notes from the folder actors and all notes from the folder writers th
 [[actors/*|actor]]-<{actor.surname == writer.surname}->[[writers/*|writer]]
 ```
 
-`[[*:next]]-{next}->[[*]]` could be expressed as:
+Select all notes that have the property `next` and all notes that are referenced from these notes through next. (This means you also get notes whose property `next` have `""` or something else as their value.):
 
 ```
-[[*]]-<{next}->[[*]]
+[[*:next]]-<{next}->[[*]]
 ```
 
 #### Right join
