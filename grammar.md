@@ -52,7 +52,7 @@ The first part of this file states *Calcite* in *Backus–Naur Form*[^1]. The se
 
 <inner-join> := "{" <link-parameter-list> "}"
 
-<link-parameter-list> := <link-property> (<white-space>? "," <white-space>? <link-property>)*
+<link-parameter-list> := <link-parameter-expression> (<white-space>? "," <white-space>? <link-parameter-expression>)*
 
 <link-parameter-expression> := <unary-link-parameter-expression> |
                                (<link-parameter-expression> <white-space>? <link-parameter-operator> <white-space>? <link-parameter-expression>) |
