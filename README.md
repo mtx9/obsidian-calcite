@@ -252,7 +252,7 @@ Select all notes from the folder actors and all notes from the folder writers th
 
 `<` before the link's `{` means *left join*.
 
-Select all notes from the folder actors and all notes from the folder writers that have the same `surname` and all notes from the folder actors (the left side).
+Select all notes from the folder actors and all notes from the folder writers that have the same `surname` and all notes from the folder actors (the left side):
 
 ```
 [[actors/*|actor]]-<{actor.surname == writer.surname}->[[writers/*|writer]]
@@ -268,7 +268,7 @@ Select all notes that have the property `next` and all notes that are referenced
 
 `>` after the link's `}` means *right join*.
 
-Select all notes from the folder actors and all notes from the folder writers that have the same `surname` and all notes from the folder writers (the right side).
+Select all notes from the folder actors and all notes from the folder writers that have the same `surname` and all notes from the folder writers (the right side):
 
 ```
 [[actors/*|actor]]-{actor.surname == writer.surname}>->[[writers/*|writer]]
@@ -292,7 +292,7 @@ Additionally, you can combine graph queries. The operators (drawn from C bit ope
 | `&` | INTERSECT |
 | `~` | SUBTRACT |
 
-Select all notes and substract all notes with the tag `#mathematics`.
+Select all notes and substract all notes with the tag `#mathematics`:
 
 ```
 [[*]] ~ [[*:#mathematics]]
