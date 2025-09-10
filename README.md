@@ -314,7 +314,7 @@ In this case, both sides of the film notes are taken. But you can use the define
 Strings are enclosed by `"`:
 
 ```
-"Hello World!"
+"Painting is poetry that is seen rather than felt, and poetry is painting that is felt rather than seen."
 ```
 
 Numbers use the peroid:
