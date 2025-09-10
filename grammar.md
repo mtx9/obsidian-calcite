@@ -7,7 +7,7 @@ The first part of this file states *Calcite* in *Backus–Naur Form*[^1]. The se
 ### Definition
 
 ```
-<compound-query> := (<query> | <link> | <tag>) (<whitespace>? <compound-operator> <whitespace>? (<query> | <link> | <tag>))*
+<compound-query> := (<query> | <all-links> | <link> | <tag>) (<whitespace>? <compound-operator> <whitespace>? (<query> | <all-links> | <link> | <tag>))*
 
 
 <whitespace> := (" " | \t)* \n? (" " | \t)*   
@@ -65,6 +65,8 @@ The first part of this file states *Calcite* in *Backus–Naur Form*[^1]. The se
 <link-property> = "!"? (<label-name> ("." | "°"))? <property-name>
 
 <link> := <inner-join>
+
+<all-links> := "<-" | "->"
 
 
 <node> := <label> | ("[[" <node-section> <label-section>? <filter-section>? "]]")
