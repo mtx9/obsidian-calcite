@@ -36,9 +36,8 @@ https://blacksmithgu.github.io/obsidian-dataview/annotation/metadata-pages/
 
 If you want to display the extended graph view inside of a note by using the query language, it could look like this:
 ````
-```calcite
+```extended-graph
 query: '[[actors/*]]-{acted_in}->[[films/*|film]]<-{directed}-[[directors/*]] | [film]-{soundtrack}->[[music/*]]'
-
 size: medium
 linkTypes:
    global: true
