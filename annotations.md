@@ -34,15 +34,14 @@ https://blacksmithgu.github.io/obsidian-dataview/annotation/metadata-pages/
 
 ### Inline notation
 
-If you want to use Calcite inside of a note with compound operators, you need to omit the whitespace beside the compound operators.
-
-```
-[[actors/*]]-{acted_in}->[[films/*|film]]<-{directed}-[[directors/*]]|[film]-{soundtrack}->[[music/*]]
-```
-
-Or you could write it in a codeblock:
+If you want to display the extended graph view inside of a note by using the query language, it could look like this:
 ````
 ```calcite
-[[actors/*]]-{acted_in}->[[films/*|film]]<-{directed}-[[directors/*]] | [film]-{soundtrack}->[[music/*]]
+query: '[[actors/*]]-{acted_in}->[[films/*|film]]<-{directed}-[[directors/*]] | [film]-{soundtrack}->[[music/*]]'
+
+size: medium
+linkTypes:
+   global: true
+   colorPalette: 'cubehelix'
 ```
 ````
