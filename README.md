@@ -309,6 +309,69 @@ In this case, both sides of the film notes are taken. But you can use the define
 [[actors/*]]-{acted_in}->[[films/*|film]]<-{directed}-[[directors/*]] | [film]-{soundtrack}->[[music/*]]
 ```
 
+### Data types
+
+Strings are enclosed by `"`:
+
+```
+"Hello World!"
+```
+
+Numbers use the peroid:
+
+```
+1.618
+```
+
+Dates are enclosed by `` ` `` (backticks):
+
+```
+`2025-09-09`
+`2025/09/09`
+```
+
+#### Dates
+
+Dates are written in the form `` `YYYY-MM-DD` `` or `` `YYYY/MM/DD` `` (with backticks). If you only want to compare a part of the date, you can omit the other date numbers but you have to keep the delimiters. Though, you can omit parts of the date from right to left and even omit the delimiters.
+
+Select all notes from the folder trips whose date `start` is equal or greater than `2020-02-14`:
+
+```
+[[trips/*:start >= `2020-02-14`]]
+
+[[trips/*:start >= `2020/02/14`]]
+```
+
+Select all notes from the folder trips whose date `start`is  greater than May 2023:
+
+```
+[[trips/*:start > `2023-05`]]
+
+[[trips/*:start > `2023/05`]]
+```
+
+Select all notes from the folder trips whose date `start` is equal or greater than `2025`:
+
+```
+[[trips/*:start >= `2025`]]
+```
+
+Select all notes from the folder trips  whose date `start` is greater than the year 2020 and greather than the 2nd of a month. (This means the first two days of any month are not selected.):
+
+```
+[[trips/*:start > `2020--02`]]
+
+[[trips/*:start > `2020//02`]]
+```
+
+Select all notes from the folder trips whose date `start` is greater than the 16th day of the month:
+
+```
+[[trips/*:start > `--16`]]
+
+[[trips/*:start > `//16`]]
+```
+
 ## Implementation
 
 For using Calcite in Obsidian, I plan to write the grammar for the [Peggy](https://peggyjs.org/) parser generator.
